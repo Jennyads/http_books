@@ -6,3 +6,12 @@ Para realizar essa modificação, o primeiro passo é gerar uma entidade e uma c
 ```
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
+Depois é necessário modificar a linha que inicia o servidor:
+```
+https.createServer({
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.crt')
+}, server).listen(8000, () => {
+   console.log("API disponível em https://localhost:8000")
+})
+```
