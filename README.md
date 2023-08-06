@@ -15,3 +15,4 @@ https.createServer({
    console.log("API disponível em https://localhost:8000")
 })
 ```
+Existe outro comando baseado no programa OpenSSL capaz de decodificar o conteúdo do certificado: "openssl x509 -in server.crt -text" | openssl rsa -in server.key -text -noout
